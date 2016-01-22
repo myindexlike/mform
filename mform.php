@@ -45,8 +45,9 @@ switch($manager_language) {
 <body>
 <div class="container">
     <?php
-    if(get_tables_count($prefix)==true){//вызов функции и проверка выведеного ней значения
 
+
+    if(get_tables_count($prefix)==true){//вызов функции и проверка выведеного ней значения
         if(isset($post['action'])) {
             $action=$post['action'];
         }
@@ -77,7 +78,7 @@ switch($manager_language) {
 		<div class='row'>
 			<div class='col-md-4'></div>
 			<div class='col-md-4'>
-				<a href=".$mod_page."&action=mform&cr_table=all class='btn btn-success btn-lg'><span class='glyphicon glyphicon-plus-sign'></span>".$lang["create_table"]." </a>
+				<a href=".$mod_page."&action=mform&cr_table=all class='btn btn-success btn-lg'><span class='glyphicon glyphicon-plus-sign'></span> ".$lang["create_table"]." </a>
 			</div>
 			<div class='col-md-4'></div>
 		</div>";

@@ -71,31 +71,27 @@ function create_table($prefix){
     return "Созданы таблицы";}
 
 //функция проверки на существование таблицы
-function mysql_table_seek($tablename, $dbname)
-{
+function mysql_table_seek($tablename){
     global $modx,$mod_page,$lang,$type,$info, $error, $log;
-    $table_list = mysql_query("SHOW TABLES FROM `".$dbname."`");
-    while ($row = mysql_fetch_row($table_list)) {
-        if ($tablename==$row[0]) {
-            return true;
-        }
+
+    $result = $modx->db->query('SHOW TABLES LIKE "'.$tablename.'"');
+    $total_rows = $modx->db->getRecordCount($result);
+    if ($total_rows==1) {
+        return true;
     }
-    return false;
+    else {
+        return false;
+    }
 }
 
 //функция подсчета имеющихся таблиц
-function get_tables_count($prefix)
-{
+function get_tables_count($prefix){
     global $modx,$mod_page,$lang,$type,$info, $error, $log;
-    $addres = $modx->getFullTableName('manager_users');//выбор адреса обяз. таблицы
-    $addr_m = explode(".", $addres);
-    $base = str_replace('`', '', $addr_m[0]);
-
     //cоздаються переменные с результатом, полученным из функции
-    $exist1=mysql_table_seek("".$prefix."mform_fields",$base);
-    $exist2=mysql_table_seek("".$prefix."mform_forms",$base);
-    $exist3=mysql_table_seek("".$prefix."mform_status",$base);
-    $exist4=mysql_table_seek("".$prefix."mform_value",$base);
+    $exist1=mysql_table_seek($prefix."mform_fields");
+    $exist2=mysql_table_seek($prefix."mform_forms");
+    $exist3=mysql_table_seek($prefix."mform_status");
+    $exist4=mysql_table_seek($prefix."mform_value");
     if($exist1==true and $exist2==true and $exist3==true and $exist4==true){
         return true;
     }else{
