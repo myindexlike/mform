@@ -586,7 +586,7 @@ $li .= '<div class="panel panel-primary">
                         </div>
                         <div class="form-group">
                             <label for="form_message">'.$lang["form_message"].'</label>
-                            <input type="text" name="form_message" class="form-control" id="form_message" placeholder="" required value="'.$row["message"].'">
+                            <textarea class="form-control" id="form_message" name="form_message" rows="5" required>'.$row["message"].'</textarea>
                         </div>
                         <div class="form-group">
                             <label for="ch_form">'.$lang["ch_form"].'</label><span class="text-danger">*</span>
@@ -724,28 +724,28 @@ echo '<div class="alert alert-success alert-dismissable">
                             </div>
                             <div class="form-group">
                                 <label for="form_message"><?php echo $lang["form_message"];?></label><span class="text-danger">*</span>
-                                <input type="text" name="form_message" class="form-control" id="form_message" placeholder="" required>
+                                <textarea class="form-control" id="form_message" name="form_message" rows="5" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="name_ch_form"><?php echo $lang["ch_form"];?></label><span class="text-danger">*</span>
-                        <textarea class="form-control" id="ch_form" name="ch_form" rows="5" required>
-                            <form action="[+action+]" method="post" class="form_[+id+]" >
-                                <h3>[+name+]</h3>
-                                [+field_chunk+]
-                                [+captcha+]
-                                <button type="submit" name="name_save" class="btn btn-primary"  id="name_save" value="[+id+]">[+button+]</button>
-                            </form>
-                        </textarea>
+                                <textarea class="form-control" id="ch_form" name="ch_form" rows="5" required>
+                                    <form action="[+action+]" method="post" class="form_[+id+]" >
+                                        <h3>[+name+]</h3>
+                                        [+field_chunk+]
+                                        [+captcha+]
+                                        <button type="submit" name="name_save" class="btn btn-primary"  id="name_save" value="[+id+]">[+button+]</button>
+                                    </form>
+                                </textarea>
                             </div>
                             <pre><?php echo $lang["pre_form"]; ?></pre>
                             <div class="form-group">
                                 <label for="ch_field"><?php echo $lang["ch_field"];?></label><span class="text-danger">*</span>
-                        <textarea class="form-control" id="ch_field" name="ch_field" rows="5" required>
-                            <div class="form-group">
-                                <label for="field_[+id+]">[+field_name+]<span class="text-danger">[+obligat+]</span></label>
-                                <input type="text" [+validate+] id="field_[+id+]" name="fields[[+id+]]" class="form-control" id="field_name[+id+]" placeholder="[+def+]" value="[+value+]" type_val="[+type+]"/>
-                            </div>
-                        </textarea>
+                                <textarea class="form-control" id="ch_field" name="ch_field" rows="5" required>
+                                    <div class="form-group">
+                                        <label for="field_[+id+]">[+field_name+]<span class="text-danger">[+obligat+]</span></label>
+                                        <input type="text" [+validate+] id="field_[+id+]" name="fields[[+id+]]" class="form-control" id="field_name[+id+]" placeholder="[+def+]" value="[+value+]" type_val="[+type+]"/>
+                                    </div>
+                                </textarea>
                             </div>
                             <pre><?php echo $lang["pre_field"]; ?></pre>
                             <label for="field_type"><?php echo $lang["lang"];?></label>
