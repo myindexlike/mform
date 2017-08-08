@@ -8,6 +8,7 @@ include_once("function_save.php");
 include_once("function_edit.php");
 
 $_POST["file"]= (isset($_POST["file"])) ? $_POST["file"] : "";
+$_POST["form_message"]= htmlspecialchars($_POST["form_message"], ENT_QUOTES);
 
 foreach($_POST as $k=>$v){
     $v=func_trim($v);
