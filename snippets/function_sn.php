@@ -147,7 +147,7 @@ function show_text($row2){
         $validate.='email';
     }
     if ($validate!=''){
-        $params_field['validate']='validate="'.$validate.'"';
+        $params_field['validate']='validate="'.$validate.'" required="'.$validate.'"';
     }else{
         $params_field['validate']='';
     }
