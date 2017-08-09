@@ -294,7 +294,7 @@ function add_mail($id_form,$user_id,$id){
             }else{$post1[$field[$k]["name"]]=$post[$k];}
         }
         //var_dump($post1);
-        $lize=serialize($post1);
+        $lize=addslashes(serialize($post1));
 
         $modx->db->query("INSERT INTO ".$modx->getFullTableName('mform_value')."
 			(`id`, `id_form`, `id_page`, `id_user`, `value`,`date`) 
