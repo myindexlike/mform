@@ -253,7 +253,7 @@ function add_mail($id_form,$user_id,$id){
 		ORDER BY `id`
 		');
     while($row2 = $modx->db->getRow($result2)){
-        $form=array("name"=>$row2["name"],"email"=>$row2["email"],"message"=>$row2["message"]);
+        $form=array("name"=>$row2["name"],"email"=>$row2["email"],"message"=>htmlspecialchars_decode($row2["message"], ENT_QUOTES));
     }
 
     /* ======= 3) =========== */
